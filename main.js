@@ -1,4 +1,4 @@
-import 'main.scss';
+import './main.scss';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Lenis from 'lenis';
@@ -160,6 +160,7 @@ gsap.from('.cta-section', {
     opacity: 0,
     duration: 1
 });
+
 
 
 
