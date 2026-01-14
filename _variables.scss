@@ -1,0 +1,41 @@
+// Colors
+$color-navy-dark: #02060C; // Near black navy
+$color-navy-main: #0B1C2D; // Keep for legacy, but use darker for hero
+$color-bg-dark: #050505; // Deepest background
+$color-bg-gradient-start: #0B1118;
+$color-bg-gradient-end: #030406;
+
+$color-gold-main: #C9A24D;
+$color-purple-main: #7F56D9; // Purple/Violet accent
+$color-purple-light: #9E77ED;
+$color-purple-glow: rgba(127, 86, 217, 0.5);
+
+$color-text-light: #F9FAFB;
+$color-text-muted: #98A2B3;
+$color-white: #FFFFFF;
+
+// Gradients & Overlays
+$gradient-hero: linear-gradient(135deg, $color-bg-gradient-start 0%, $color-bg-gradient-end 100%);
+$gradient-purple-btn: linear-gradient(180deg, #7F56D9 0%, #6941C6 100%);
+$gloss-overlay: rgba(255, 255, 255, 0.05);
+
+// Typography
+$font-heading: 'Manrope', sans-serif; // Keeping Manrope, maybe switch to serif if requested "Touch of Class"? User said "modern sans-serif hybrid" works too.
+$font-body: 'Inter', sans-serif;
+
+// Spacing
+$spacing-xs: 0.5rem; // 8px
+$spacing-sm: 1rem; // 16px
+$spacing-md: 2rem; // 32px
+$spacing-lg: 4rem; // 64px
+$spacing-xl: 8rem; // 128px
+$spacing-xxl: 12rem; // 192px
+
+// Layout
+$container-width: 1440px;
+$container-padding: 2rem;
+$grid-gap: 2rem;
+
+// Transitions
+$transition-fast: 0.3s ease;
+$transition-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);

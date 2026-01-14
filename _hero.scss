@@ -1,0 +1,267 @@
+@use 'variables' as *;
+
+.hero {
+    min-height: 100vh;
+    position: relative;
+    background: $gradient-hero;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 100px;
+
+    // Grid Overlay
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            linear-gradient(rgba($color-white, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba($color-white, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    // Glow
+    &::after {
+        content: '';
+        position: absolute;
+        top: -20%;
+        right: -10%;
+        width: 60vw;
+        height: 60vw;
+        background: radial-gradient(circle, $color-purple-glow 0%, transparent 70%);
+        filter: blur(80px);
+        z-index: 0;
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    .container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        background: rgba($color-bg-dark, 0.6);
+        border: 1px solid rgba($color-purple-light, 0.3);
+        border-radius: 50px;
+        color: $color-purple-light;
+        font-size: 0.85rem;
+        margin-bottom: $spacing-md;
+        box-shadow: 0 0 15px rgba($color-purple-main, 0.2);
+
+        .badge-icon {
+            font-size: 1rem;
+        }
+    }
+
+    &__title {
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        font-weight: 500; // Refined weight
+        color: $color-white;
+        line-height: 1.1;
+        margin-bottom: $spacing-sm;
+        letter-spacing: -0.02em;
+        max-width: 900px;
+
+        span {
+            display: block; // Force line break for impact
+        }
+    }
+
+    &__subtitle {
+        font-size: 1.2rem;
+        color: $color-text-muted;
+        max-width: 600px;
+        margin-bottom: $spacing-lg;
+        line-height: 1.6;
+    }
+
+    &__cta-group {
+        display: flex;
+        align-items: center;
+        gap: $spacing-md;
+        margin-bottom: $spacing-xxl;
+
+        @media (max-width: 600px) {
+            flex-direction: column;
+        }
+    }
+
+    .btn-primary-glow {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 1rem 2rem;
+        background: $gradient-purple-btn;
+        border-radius: 50px;
+        color: $color-white;
+        font-weight: 600;
+        box-shadow: 0 4px 20px rgba($color-purple-main, 0.4);
+        transition: transform $transition-fast;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba($color-purple-main, 0.6);
+        }
+    }
+
+    &__social-proof {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .avatars {
+            display: flex;
+
+            img {
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                border: 2px solid $color-bg-dark;
+                margin-left: -10px;
+
+                &:first-child {
+                    margin-left: 0;
+                }
+            }
+        }
+
+        p {
+            color: $color-text-muted;
+            font-size: 0.9rem;
+            text-align: left;
+        }
+    }
+
+    // Feature Cards
+    &__features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: $spacing-md;
+        width: 100%;
+        margin-top: $spacing-lg;
+
+        @media (max-width: 900px) {
+            grid-template-columns: 1fr;
+            max-width: 500px;
+        }
+    }
+
+    .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 1.5rem;
+        text-align: left;
+        position: relative;
+        overflow: hidden;
+        transition: transform $transition-fast;
+
+        &:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        h3 {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            color: $color-white;
+        }
+
+        p {
+            font-size: 0.85rem;
+            color: $color-text-muted;
+            margin-bottom: 1rem;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+
+            button {
+                font-size: 0.75rem;
+                padding: 6px 12px;
+                border-radius: 8px;
+                background: rgba(255, 255, 255, 0.1);
+                color: $color-text-light;
+
+                &:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+    }
+
+    // Specific Card UI mocks
+    .exchange-ui {
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+        padding: 12px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+
+        .currency-box {
+            font-size: 0.8rem;
+            color: $color-white;
+
+            span {
+                display: block;
+                font-size: 0.7rem;
+                color: $color-text-muted;
+            }
+        }
+
+        .swap-icon {
+            width: 24px;
+            height: 24px;
+            background: $color-purple-main;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+    }
+
+    .card-preview {
+        background: linear-gradient(135deg, #2C3E50, #000000);
+        border-radius: 12px;
+        padding: 15px;
+        margin-top: 10px;
+        color: white;
+        position: relative;
+
+        .card-num {
+            margin: 15px 0;
+            font-family: monospace;
+            letter-spacing: 2px;
+        }
+
+        .card-bottom {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+    }
+}

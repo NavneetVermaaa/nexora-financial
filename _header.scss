@@ -1,0 +1,95 @@
+@use 'variables' as *;
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding: $spacing-sm 0;
+    transition: all $transition-fast;
+
+    &.scrolled {
+        background: rgba($color-bg-dark, 0.8);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba($color-white, 0.05);
+    }
+
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        display: flex;
+        align-items: center;
+        gap: $spacing-xs;
+        font-family: $font-heading;
+        font-weight: 600;
+        font-size: 1.1rem;
+        color: $color-white;
+        letter-spacing: -0.01em;
+
+        .logo-icon {
+            width: 24px;
+            height: 24px;
+            border: 1.5px solid $color-white;
+            border-radius: 6px;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        gap: $spacing-md;
+
+        @media (max-width: 768px) {
+            display: none; // Hidden on mobile for now, prioritize desktop as per prompt focus
+        }
+
+        a {
+            font-size: 0.9rem;
+            color: rgba($color-white, 0.7);
+            font-weight: 400;
+
+            &:hover {
+                color: $color-white;
+            }
+        }
+    }
+
+    &__actions {
+        display: flex;
+        gap: $spacing-sm;
+    }
+}
+
+.btn-pill {
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all $transition-fast;
+
+    &--outline {
+        background: transparent;
+        border: 1px solid rgba($color-white, 0.2);
+        color: $color-white;
+
+        &:hover {
+            border-color: $color-white;
+        }
+    }
+
+    &--solid {
+        background: $color-purple-main;
+        border: 1px solid $color-purple-main;
+        color: $color-white;
+
+        &:hover {
+            background: $color-purple-light;
+            border-color: $color-purple-light;
+        }
+    }
+}

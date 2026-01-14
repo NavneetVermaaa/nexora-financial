@@ -1,0 +1,211 @@
+@use 'variables' as *;
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: $spacing-sm;
+    color: $color-white;
+}
+
+.section-desc {
+    color: $color-text-muted;
+    margin-bottom: $spacing-md;
+    font-size: 1.1rem;
+}
+
+// Why Us
+.why-us {
+    border-top: 1px solid rgba($color-text-light, 0.05);
+
+    .metrics {
+        display: flex;
+        gap: $spacing-md;
+        margin-top: $spacing-md;
+
+        .metric-item {
+            display: flex;
+            flex-direction: column;
+
+            .metric-value {
+                font-family: $font-heading;
+                font-size: 2.5rem;
+                color: $color-gold-main;
+                font-weight: 700;
+            }
+
+            .metric-label {
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+                color: $color-text-muted;
+            }
+        }
+    }
+
+    .benefit-list {
+        .benefit-item {
+            margin-bottom: $spacing-md;
+            padding-bottom: $spacing-md;
+            border-bottom: 1px solid rgba($color-text-light, 0.1);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            h3 {
+                font-size: 1.25rem;
+                margin-bottom: 0.5rem;
+                color: $color-text-light;
+            }
+
+            p {
+                color: $color-text-muted;
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+// Process
+.process {
+    background: rgba($color-navy-main, 0.2);
+
+    .text-center {
+        text-align: center;
+    }
+
+    .mb-lg {
+        margin-bottom: $spacing-lg;
+    }
+
+    &__steps {
+        display: flex;
+        justify-content: space-between;
+        gap: $spacing-md;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 25px; // Approximate vertical center of the number
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg,
+                    transparent 0%,
+                    rgba($color-gold-main, 0.5) 20%,
+                    rgba($color-gold-main, 0.5) 80%,
+                    transparent 100%);
+            z-index: 0;
+
+            @media (max-width: 768px) {
+                display: none; // Hide line on mobile
+            }
+        }
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
+
+    &__step {
+        flex: 1;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding: 0 $spacing-sm;
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: $color-navy-dark;
+            border: 1px solid $color-gold-main;
+            color: $color-gold-main;
+            border-radius: 50%;
+            font-family: $font-heading;
+            font-weight: 600;
+            margin-bottom: $spacing-sm;
+            position: relative;
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: $color-white;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: $color-text-muted;
+        }
+    }
+}
+
+// Clients & Testimonials
+.clients {
+
+    // Styles for client profiles (e.g. pills or cards)
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+        justify-content: center;
+        margin-bottom: $spacing-lg;
+    }
+
+    &__tag {
+        padding: 0.75rem 1.5rem;
+        border: 1px solid rgba($color-text-light, 0.2);
+        border-radius: 4px;
+        color: $color-text-muted;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: all $transition-fast;
+
+        &:hover {
+            border-color: $color-gold-main;
+            color: $color-gold-main;
+            background: rgba($color-gold-main, 0.05);
+        }
+    }
+}
+
+.testimonials {
+    padding-top: 0; // Merged visually with clients section maybe? Or separate. keeping separate is fine.
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: $spacing-md;
+
+        @media (max-width: 768px) {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    &__card {
+        background: linear-gradient(135deg, rgba($color-white, 0.03), transparent);
+        padding: $spacing-md;
+        border-left: 2px solid $color-gold-main;
+
+        p {
+            font-size: 1.1rem;
+            color: $color-text-light;
+            font-style: italic;
+            margin-bottom: $spacing-sm;
+            line-height: 1.7;
+        }
+
+        cite {
+            display: block;
+            color: $color-text-muted;
+            font-size: 0.9rem;
+            font-style: normal;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+    }
+}

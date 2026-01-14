@@ -1,0 +1,44 @@
+@use 'variables' as *;
+
+.container {
+    width: 100%;
+    max-width: $container-width;
+    margin: 0 auto;
+    padding: 0 $container-padding;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: $grid-gap;
+}
+
+// Utility classes for common grid spans
+.col-12 {
+    grid-column: span 12;
+}
+
+.col-6 {
+    grid-column: span 6;
+}
+
+.col-4 {
+    grid-column: span 4;
+}
+
+@media (max-width: 1024px) {
+
+    .col-6,
+    .col-4 {
+        grid-column: span 12;
+    }
+}
+
+.section {
+    padding: $spacing-xl 0;
+    position: relative;
+}
+
+.section-lg {
+    padding: $spacing-xxl 0;
+}

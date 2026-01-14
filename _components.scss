@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    font-family: $font-heading;
+    font-weight: 500;
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    transition: all $transition-fast;
+    border: 1px solid transparent;
+
+    &-primary {
+        background-color: $color-gold-main;
+        color: $color-navy-dark;
+        border-color: $color-gold-main;
+
+        &:hover {
+            background-color: transparent;
+            color: $color-gold-main;
+        }
+    }
+
+    &-text {
+        background-color: transparent;
+        color: $color-text-light;
+        border-color: rgba($color-text-light, 0.3);
+        margin-left: $spacing-sm;
+
+        &:hover {
+            border-color: $color-gold-main;
+            color: $color-gold-main;
+        }
+    }
+}
+
+.text-gold {
+    color: $color-gold-main;
+}

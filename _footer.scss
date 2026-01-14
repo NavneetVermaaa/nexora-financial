@@ -1,0 +1,91 @@
+@use 'variables' as *;
+
+.footer {
+    background-color: darken($color-navy-dark, 2%);
+    padding: $spacing-lg 0 $spacing-md;
+    border-top: 1px solid rgba($color-text-light, 0.05);
+    font-size: 0.9rem;
+    color: $color-text-muted;
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: $spacing-lg;
+        margin-bottom: $spacing-lg;
+    }
+
+    &__brand {
+        max-width: 300px;
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: $spacing-sm;
+            color: $color-white;
+        }
+    }
+
+    &__links {
+        display: flex;
+        gap: $spacing-lg;
+
+        a {
+            &:hover {
+                color: $color-gold-main;
+            }
+        }
+    }
+
+    &__legal {
+        border-top: 1px solid rgba($color-text-light, 0.05);
+        padding-top: $spacing-md;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: $spacing-sm;
+        font-size: 0.85rem;
+    }
+
+    .compliance-text {
+        max-width: 600px;
+        opacity: 0.7;
+        margin-top: $spacing-sm;
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+}
+
+.cta-section {
+    text-align: center;
+    background: radial-gradient(circle at center, rgba($color-navy-main, 1) 0%, $color-navy-dark 100%);
+    padding: $spacing-xxl 0;
+
+    h2 {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        margin-bottom: $spacing-md;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    p {
+        color: $color-text-muted;
+        margin-bottom: $spacing-lg;
+    }
+
+    .trust-indicator {
+        margin-top: $spacing-md;
+        font-size: 0.9rem;
+        color: rgba($color-text-light, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+
+        &::before {
+            content: '🔒'; // Replace with icon if desired
+            font-size: 1rem;
+        }
+    }
+}
